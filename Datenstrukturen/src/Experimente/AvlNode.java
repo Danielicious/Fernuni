@@ -5,6 +5,7 @@ public class AvlNode {
 	 public AvlNode right;
 	 public AvlNode parent;
 	 public int key;
+	 public int smallerValues;
 	 public int balance;
 
 	 public AvlNode(int k) {

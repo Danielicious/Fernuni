@@ -17,6 +17,19 @@ public class AvlTree {
 				return current.key;
 	 }
 	 
+	 public void setSmallerValues(){
+		 inOrderSmallerValuesSet(this.root, 0);
+	 }
+	 
+	 private int inOrderSmallerValuesSet(AvlNode n, int smallerValues){
+		 if (n==null)
+			 return smallerValues;
+		 smallerValues = inOrderSmallerValuesSet(n.left, smallerValues);
+		 n.smallerValues = smallerValues++;
+		 smallerValues = inOrderSmallerValuesSet(n.right, smallerValues);
+		 return smallerValues;
+	 }
+	 
 	 
 	/***************************** Core Functions ************************************/
 
