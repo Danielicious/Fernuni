@@ -16,9 +16,15 @@ public class AvlTreeTest {
 			System.out.println(elem);
 		System.out.println("" + rootNode.getSecondSmallest());
 		rootNode.setSmallerValues();
-		
+		int amount = 0;
 		for (AvlNode elem : rootNode.inorder())
+		{
+			amount = elem.smallerValues;
 			System.out.println("" + elem.key + "->" + elem.smallerValues);
+		}
+		System.out.println("Now giving all nodes of AVLTree with r smaller values");
+		for (int i = 0; i< amount;i++)
+			System.out.println("" + i + "-> " + rootNode.getRSmallest(i));
 	}
 	
 	public void randomTree(AvlTree rootNode,int min, int max, List<Integer> list){

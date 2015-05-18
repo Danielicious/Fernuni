@@ -17,6 +17,35 @@ public class AvlTree {
 				return current.key;
 	 }
 	 
+	 public int getRSmallestRecursive(int r){
+		 return getRSmallestRecursive(root, r);		 
+	 }
+	 
+	 private int getRSmallestRecursive(AvlNode current, int r){
+		 if (r== current.smallerValues)
+			 return current.key;
+		 if (r<current.smallerValues)
+			 return getRSmallestRecursive(current.left, r);
+		 else
+			 return getRSmallestRecursive(current.right, r);
+	 }
+	 
+	 public int getRSmallest(int r)
+	 {
+		 AvlNode current = root;
+		 while (current != null && current.smallerValues != r)
+		 {
+			 if (r<current.smallerValues)
+				 current = current.left;
+			 else
+				 current = current.right;
+		 }
+		 if (current != null)
+			 return current.key;
+		 else
+			 return Integer.MIN_VALUE;
+	 }
+	 
 	 public void setSmallerValues(){
 		 inOrderSmallerValuesSet(this.root, 0);
 	 }
@@ -24,10 +53,11 @@ public class AvlTree {
 	 private int inOrderSmallerValuesSet(AvlNode n, int smallerValues){
 		 if (n==null)
 			 return smallerValues;
-		 smallerValues = inOrderSmallerValuesSet(n.left, smallerValues);
-		 n.smallerValues = smallerValues++;
-		 smallerValues = inOrderSmallerValuesSet(n.right, smallerValues);
-		 return smallerValues;
+		 int returnValue = smallerValues;
+		 returnValue = inOrderSmallerValuesSet(n.left, returnValue);
+		 n.smallerValues = returnValue++;
+		 returnValue = inOrderSmallerValuesSet(n.right, returnValue);
+		 return returnValue;
 	 }
 	 
 	 
