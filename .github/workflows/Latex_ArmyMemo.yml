@@ -2,8 +2,9 @@ name: Compile ArmyMemo
 
 on: 
  push:
-    #paths:
-    #  - 'Latex/ArmyMemo/*'
+    paths:
+      - 'Latex/ArmyMemo/*'
+      - '.github/workflows/Latex_ArmyMemo.yml'
 
 jobs:
   build:
