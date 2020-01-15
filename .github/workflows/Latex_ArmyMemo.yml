@@ -2,8 +2,8 @@ name: Compile ArmyMemo
 
 on: 
  push:
-    paths:
-      - 'Latex/ArmyMemo/*'
+    #paths:
+    #  - 'Latex/ArmyMemo/*'
 
 jobs:
   build:
