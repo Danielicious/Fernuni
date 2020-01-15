@@ -26,7 +26,4 @@ jobs:
      - name: Check pdf files
        run: |
           set -e
-          file test/test.pdf | grep -q ' PDF '
-          file test/math.pdf | grep -q ' PDF '
-          file test/biblatex.pdf | grep -q ' PDF '
-          file test/minted.pdf | grep -q ' PDF '
+          file ArmyMemo/ArmyMemo.pdf | grep -q ' PDF '
